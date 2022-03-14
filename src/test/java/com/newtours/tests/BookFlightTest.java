@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 import tests.BaseTest;
 
 public class BookFlightTest extends BaseTest {
-    private String noOfPassangers;
+    private String noOfPassengers;
     private String expectedPrice;
 
     @BeforeTest
-    @Parameters({"noOfPassangers","expectedPrice"})
-    public void setupParameters(String noOfPassangers, String expectedPrice){
-        this.noOfPassangers = noOfPassangers;
+    @Parameters({"noOfPassengers","expectedPrice"})
+    public void setupParameters(String noOfPassengers, String expectedPrice){
+        this.noOfPassengers = noOfPassengers;
         this.expectedPrice = expectedPrice;
     }
 
@@ -36,7 +36,7 @@ public class BookFlightTest extends BaseTest {
     @Test(dependsOnMethods = "registrationConfirmationPage")
     public void flightDetailsPage(){
         FlightDetailsPage flightDetailsPage = new FlightDetailsPage(driver);
-        flightDetailsPage.selectPassangers(noOfPassangers);
+        flightDetailsPage.selectPassangers(noOfPassengers);
         flightDetailsPage.gotToFindFlightsPage();
     }
 
