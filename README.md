@@ -41,3 +41,6 @@ Enter container
 
 Run tests inside container **(Selenium Server must be running)**
 `java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -DHUB_HOST=192.168.100.7 org.testng.TestNG search-module.xml`
+
+Map Test Output
+`docker run -e HUB_HOST=192.168.100.7 -e MODULE=testng.xml -v /target/test-output:/usr/share/code/test-output selenium-docker-jars`
