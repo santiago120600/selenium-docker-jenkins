@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build and Deploy') {
             steps {
-                sh "docker-compose -e BROWSER=${params.browser}"
+                sh "docker compose -e BROWSER=${params.browser}"
             }
         }
     }
