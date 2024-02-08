@@ -22,14 +22,17 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-  search-module:
-    image: selenium-docker-jars
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: selenium-maven 
     depends_on:
       - chrome
       - firefox
     environment:
       - BROWSER=chrome
       - HUB_HOST=hub
-      - MODULE=testng.xml
     volumes:
-      - ./search-result:/usr/share/code/test-output
+      - ./target/test-output:/usr/share/code/test-output
+      - /root/.m2:/root/.m2
